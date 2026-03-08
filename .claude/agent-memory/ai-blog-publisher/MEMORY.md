@@ -20,8 +20,11 @@
 - pubDate and accessDate use YYYY-MM-DD format
 
 ## Unsplash Image Search
-- Use WebSearch: `site:unsplash.com {topic} photo`
-- Extract `images.unsplash.com/photo-*` URL from results
+- Unsplash search pages are client-rendered; WebFetch cannot extract image URLs
+- Best approach: use Chrome browser tools (navigate to specific photo page, extract og:image meta tag via JS)
+- Pattern: `document.querySelector('meta[property="og:image"]').content.split('?')[0]`
+- Navigate directly to photo detail pages found via WebSearch (e.g. unsplash.com/photos/description-slug-PHOTOID)
+- Verify the extracted URL uses `images.unsplash.com` domain (not `plus.unsplash.com` which is premium)
 - If no good match, omit heroImage and inform user
 
 ## Integration with blog-researcher
