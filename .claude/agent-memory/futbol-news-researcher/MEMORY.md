@@ -10,6 +10,11 @@
 - Transfer rumors: Sky Sports Transfer Centre and TEAMtalk have the freshest rumors
 - For stat comparisons (e.g., Yamal vs Messi at same age), PlanetFootball and OneFootball have good structured data
 
+## User Preferences
+- Focus heavily on Real Madrid and Barcelona — these are the priority teams
+- Minimize coverage of other leagues (Serie A, Bundesliga, Ligue 1) — only include if the story is truly viral or exceptional
+- Champions League and La Liga coverage is fine since it involves the focus teams
+
 ## Content Patterns
 - "Win the battle, lose the war" narratives (e.g., Barca winning 3-0 but eliminated) perform well as shock hooks
 - Injury crisis stories work best when you stack the count (e.g., "SEVEN ACLs in three years")
