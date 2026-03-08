@@ -17,17 +17,22 @@ The `.claude/` folder contains the configuration that powers this research machi
 .claude/
 ├── agents/
 │   ├── blog-researcher.md          # Agent for research tasks
-│   └── ai-blog-publisher.md        # Agent for publishing to AI Blog
+│   ├── ai-blog-publisher.md        # Agent for publishing to AI Blog
+│   └── futbol-news-researcher.md   # Agent for football TikTok content
 ├── agent-memory/
 │   ├── blog-researcher/
 │   │   └── MEMORY.md               # Persistent learnings for research
-│   └── ai-blog-publisher/
-│       └── MEMORY.md               # Persistent learnings for publishing
+│   ├── ai-blog-publisher/
+│   │   └── MEMORY.md               # Persistent learnings for publishing
+│   └── futbol-news-researcher/
+│       └── MEMORY.md               # Persistent learnings for football content
 ├── skills/
 │   ├── research-for-posts/
 │   │   └── SKILL.md                # Core research workflow
-│   └── ai-blog-publisher/
-│       └── SKILL.md                # Blog formatting and publishing
+│   ├── ai-blog-publisher/
+│   │   └── SKILL.md                # Blog formatting and publishing
+│   └── futbol-news-researcher/
+│       └── SKILL.md                # Football news & TikTok scripts
 └── settings.local.json             # Local Claude configuration
 ```
 
@@ -46,6 +51,14 @@ The `.claude/` folder contains the configuration that powers this research machi
 - Creates companion sources files with citations
 - Can process output from the blog-researcher agent
 
+**`futbol-news-researcher`** — Specialized agent for football TikTok content:
+- Uses the `futbol-news-researcher` skill
+- Researches weekly football news across 5 source categories (sports outlets, official sources, transfer data, social media trends, community perspectives)
+- Produces 8-12 TikTok-ready content packages per week
+- Covers Barcelona, Real Madrid, Champions League, World Cups, and viral player stories
+- Outputs a single `futbol-news-{week}.md` file with full spoken-word scripts
+- Maintains persistent memory of source reliability and viral patterns
+
 ### Agent Memory
 
 Each agent has persistent memory that stores learnings across sessions:
@@ -53,6 +66,7 @@ Each agent has persistent memory that stores learnings across sessions:
 - **Research patterns** — Parallel search strategies, handling failed fetches, source quality signals
 - **Writing conventions** — No emojis, em dashes, attribution requirements
 - **Publishing rules** — Category enum values, tag conventions, SEO constraints
+- **Viral patterns** — Hook styles, content types, and audience insights for TikTok
 - **Workflow optimizations** — Discovered improvements over time
 
 ### Skills
@@ -74,6 +88,14 @@ Each agent has persistent memory that stores learnings across sessions:
 | **Format** | Generate YAML frontmatter with SEO-optimized description (<160 chars) |
 | **TOC** | Build table of contents with correct anchor IDs |
 | **Sources** | Create companion file with all citations |
+
+**`futbol-news-researcher`** — Football TikTok content workflow:
+
+| Phase | Description |
+|-------|-------------|
+| **Research** | Gather news from 5 source categories: sports outlets, official sources, transfer/data, social media trends, community perspectives |
+| **Structure** | Select 8-12 items balanced across focus areas (~60% evergreen, ~40% breaking), build TikTok packages using 5-part storytelling: Hook, Setup, Tension, Payoff, CTA |
+| **Output** | Generate `futbol-news-{week}.md` with YAML frontmatter, full spoken-word scripts, pacing markers, and source URLs |
 
 ## Output Structure
 
@@ -109,6 +131,12 @@ Research [topic] and create a blog post
 
 ```
 Publish this article to the AI Blog
+```
+
+**Research football news for TikTok:**
+
+```
+Research this week's football news for TikTok
 ```
 
 The agents execute the full workflow and produce structured output.
