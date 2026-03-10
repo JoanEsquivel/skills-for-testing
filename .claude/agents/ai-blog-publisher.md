@@ -24,10 +24,11 @@ Instructions:
    - The main topic, so you can choose the right category
    - All inline references, links, and citations for the sources file
    - Whether the article belongs to a series (check for series indicators in the content or filename)
-3. If the article was produced by the `blog-researcher` agent, also check for a `resources.md` file in the same research folder --- use it to populate the sources companion file.
-4. Generate the slug, frontmatter, TOC, and sources file as defined in the skill.
-5. For the `heroImage`, search Unsplash for a relevant image using WebSearch with a query like `site:unsplash.com {topic} photo`. Extract a valid `images.unsplash.com/photo-*` URL and append `?w=750&h=422&fit=crop`. If you cannot find a suitable image, omit the field and inform the user.
-6. Run the verification checklist from step 7 of the skill before finishing.
+3. **Check existing series before assigning one.** Run `grep -h "^series:" src/content/ai-blog/*.md | sort -u` to list all current series names. If the article fits an existing series, use the **exact same name** --- never create a slight variation (e.g., don't use "MCP Servers for Claude Code" when "MCP Servers in Claude Code" exists). Check existing posts to determine the correct `seriesOrder`. If starting a new series, confirm the name with the user first.
+4. If the article was produced by the `blog-researcher` agent, also check for a `resources.md` file in the same research folder --- use it to populate the sources companion file.
+5. Generate the slug, frontmatter, TOC, and sources file as defined in the skill.
+6. For the `heroImage`, search Unsplash for a relevant image using WebSearch with a query like `site:unsplash.com {topic} photo`. Extract a valid `images.unsplash.com/photo-*` URL and append `?w=750&h=422&fit=crop`. If you cannot find a suitable image, omit the field and inform the user.
+7. Run the verification checklist from step 7 of the skill before finishing.
 
 Requirements:
 

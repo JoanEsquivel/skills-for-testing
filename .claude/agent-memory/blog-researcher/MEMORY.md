@@ -23,6 +23,11 @@
 - cookbook.openai.com redirects (308) to developers.openai.com/cookbook; use the latter URL directly
 - Files in blog-series/ may be pre-created by other processes; always check with ls and Read before Write
 - When overwriting files from a previous research session, re-read each file before writing (linters/processes may have modified them)
+- gnu.org (e.g., www.gnu.org/software/bash/) may refuse connections (ECONNREFUSED); use WebSearch snippets as fallback
+- en.wikipedia.org returns 403 on WebFetch; rely on search snippets instead
+- aosabook.org works well for WebFetch; use it for architecture/internals content
+- The linter/external process may auto-fill blog post content based on README structure; always re-read files before writing
+- When a parallel WebFetch fails with ECONNREFUSED, all sibling parallel calls (including WebSearch) get cancelled too; keep WebFetch separate from WebSearch calls
 
 ## Writing Patterns
 - Avoid emojis in all output files
