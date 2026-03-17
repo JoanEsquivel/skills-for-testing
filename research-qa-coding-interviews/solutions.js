@@ -92,23 +92,57 @@ function isPalindromeMid(str) {
 //   by working on the original string and skipping non-alphanumeric chars."
 //
 // Complexity: O(n) time, O(1) space.
-function isPalindromeBest(str) {
-  if (str == null) return false;
-  const isAlnum = (ch) => /[a-z0-9]/.test(ch);
-  let left = 0;
-  let right = str.length - 1;
+// const stringUnderEvaluation = 'Never odd or even'
+// const stringUnderEvaluation = 'Never, odd or. even'
+// const stringUnderEvaluation = '12344321'
+// const stringUnderEvaluation = null
+const stringUnderEvaluation = 'House House'
+console.log(isPalindrome(stringUnderEvaluation))
+
+function isPalindrome(stringToEvaluate) {
+  //1- Evaluate if the string is null, if so we return false inmediatly
+  if (stringToEvaluate == null) return false
+
+  //2- Create an evaluator of a character to avoid puntuctuation sings or something that is not a character or a number
+  // Regex: [] -> any of these characters
+  //        a-z -> Letters
+  //        0-9 -> Numbers
+  const isAlNum = (ch) => /[a-z0-9]/.test(ch)
+
+  //3- Set two pointers for the string under stringUnderEvaluation, so we can start comparing them.
+
+  let left = 0
+  let right = stringUnderEvaluation.length - 1
+
+  //4- We start comparing the pointers, if the comparison is true, we add or decrease our pointers to the next char comparison. 
 
   while (left < right) {
-    const lo = str[left].toLowerCase();
-    const hi = str[right].toLowerCase();
-    if (!isAlnum(lo)) { left++; continue; }
-    if (!isAlnum(hi)) { right--; continue; }
-    if (lo !== hi) return false;
-    left++;
+    // 5- Get the characters assigned to the pointers. Make sure you make them be lowercase to avoid false positives
+    let lowPointer = stringToEvaluate[left].toLowerCase()
+    let highPointer = stringToEvaluate[right].toLowerCase()
+
+    // 6- Skip characters that are not numbers or letters
+    if (!isAlNum(lowPointer)) { left++; continue; }
+    if (!isAlNum(highPointer)) { right--; continue; }
+
+    // 7- The main validation, if the characters are not equal, we should stop the loop and return false. 
+
+    if (lowPointer !== highPointer) return false
+
+    // 8- If everything looks good, it is just a matter of increase and decrease the pointers to compare all the characters. 
+
     right--;
+    left++;
+
+
   }
+
+  // 9- If we are out of the loop we just return true.
   return true;
+
 }
+
+
 
 console.log("=== PROBLEM 1: Palindrome ===");
 ["racecar", "A man, a plan, a canal: Panama", "hello", "", "a", null].forEach((s) =>
