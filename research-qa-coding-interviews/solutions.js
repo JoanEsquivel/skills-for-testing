@@ -371,19 +371,47 @@ function isAnagramMid(a, b) {
 //   decrement -- O(n) time and effectively O(1) space for a bounded alphabet."
 //
 // Complexity: O(n) time, O(1) space (bounded alphabet).
-function isAnagramBest(a, b) {
-  if (a == null || b == null) return false;
-  const cleanA = a.toLowerCase().replace(/\s/g, "");
-  const cleanB = b.toLowerCase().replace(/\s/g, "");
-  if (cleanA.length !== cleanB.length) return false;
+//Anagram
+const a = 'Clint Eastwood'
+const b = 'Old West Action'
 
-  const freq = {};
-  for (const ch of cleanA) freq[ch] = (freq[ch] || 0) + 1;
-  for (const ch of cleanB) {
-    if (!freq[ch]) return false;
-    freq[ch]--;
+console.log(`Valid Case: ${isAnagram(a, b)}`)
+console.log(`Null Case: ${isAnagram(null, b)}`)
+console.log(`Null Case: ${isAnagram(a, null)}`)
+console.log(`Invalid Case: ${isAnagram('test', b)}`)
+
+
+
+function isAnagram(a, b) {
+  //1- Check if it is null
+  if (a === null) return false
+  if (b === null) return false
+
+  //2- Clean the a & b strings from white spaces and lower cases
+  // Regex explanation -> \s clear strings
+  //                   -> g globally
+  //                   -> "" replace with anything, just clean it 
+  const cleanA = a.toLowerCase().replace(/[\s]/g, "")
+  const cleanB = b.toLowerCase().replace(/[\s]/g, "")
+
+  //3- Check both word lengths is the same
+  if (cleanA.length !== cleanB.length) return false
+
+  //4- Map the characters from word A in a Map
+  let findings = {}
+
+  //5- Save the amount of chars found in the string. If it is the firs time is 0+1
+  for (const char of cleanA) findings[char] = (findings[char] | 0) + 1
+  //6- Iterate over the other string and 
+  // 6.1 if the char does not exist in the findings, return false... it is not an anagram. 
+  // 6.2 Decrease the finding char amount
+  for (const char of cleanB) {
+    if (!findings[char]) return false
+    findings[char]--
   }
-  return true;
+
+
+  return true
 }
 
 console.log("\n=== PROBLEM 3: Anagram Detection ===");
