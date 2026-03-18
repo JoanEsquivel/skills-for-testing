@@ -238,17 +238,39 @@ function reverseStringMid(str) {
 //   char array -- O(n) space is unavoidable in JS since strings are immutable."
 //
 // Complexity: O(n) time, O(n) space (unavoidable for immutable strings).
-function reverseStringBest(str) {
-  if (str == null) return "";
-  const chars = Array.from(str);
-  let left = 0;
-  let right = chars.length - 1;
+
+// 1- Define the variables to evaluate
+const word = 'Hello'
+const nullVar = null
+
+console.log(`Output for a word: ${reverseString(word)}`)
+console.log(`Output for a null var: ${reverseString(nullVar)}`)
+
+//2- Create the function
+
+function reverseString(str) {
+  console.log(`Log for: ${str}`)
+  //3- Null Validation
+  if (str === null) return ""
+
+  //4- Change the word into an array
+  // MAKE SURE U USE FROM
+  const arr = Array.from(str)
+
+  //5- Indexes
+  let left = 0
+  let right = arr.length - 1
+
+  //6- Create a while loop
   while (left < right) {
-    [chars[left], chars[right]] = [chars[right], chars[left]];
-    left++;
-    right--;
+    //5- Use Array destructuring to do the inversion
+    [arr[left], arr[right]] = [arr[right], arr[left]]
+    //6- Use this to get us out of the loop
+    left++
+    right--
   }
-  return chars.join("");
+  //7- Return the array as a string
+  return arr.join("")
 }
 
 console.log("\n=== PROBLEM 2: String Reversal ===");
