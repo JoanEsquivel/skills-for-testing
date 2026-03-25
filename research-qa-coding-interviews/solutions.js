@@ -412,7 +412,7 @@ function isAnagram(a, b) {
 
 
   return true
-}
+} x
 
 console.log("\n=== PROBLEM 3: Anagram Detection ===");
 [["listen", "silent"], ["hello", "world"], ["Astronomer", "Moon starer"], ["", ""], [null, "a"]].forEach(([a, b]) =>
@@ -1084,16 +1084,37 @@ console.log("\n=== PROBLEM 9: Second Largest ===");
 //   mostly a teaching tool -- I'd use merge sort for O(n log n)."
 //
 // Complexity: O(n^2) time, O(1) space (in-place on copy), stable.
+
+let arr = [1, 10, 20, 50, 9, 2, 1, 5]
+
+console.log(sortBubble(arr))
+
+
 function sortBubble(arr) {
-  if (!Array.isArray(arr)) return [];
-  const a = [...arr];
+  if (!Array.isArray(arr)) return []
+
+
+  let a = [...arr]
+
   for (let i = 0; i < a.length - 1; i++) {
+    console.log(`For 1: Iterating over the array position index ${i} with the value ${a[i]}`)
+
     for (let j = 0; j < a.length - 1 - i; j++) {
-      if (a[j] > a[j + 1]) [a[j], a[j + 1]] = [a[j + 1], a[j]];
+      console.log(`For 2: Iterating over the array position index ${j} with the value ${a[j]} `)
+      console.log(`For 2: Value under comparison(next one): ${a[j + 1]}`)
+
+      if (a[j] > a[j + 1]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]]
+        console.log(`Moving the greater to the right: ${a[j + 1]}`)
+      }
     }
   }
-  return a;
+
+  return a
+
+
 }
+
 
 // ── MID: Selection Sort ──
 // What it does: Sorts an array by repeatedly finding the minimum element
