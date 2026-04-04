@@ -46,6 +46,7 @@ Choose exactly ONE category from this list:
 | `ai` | AI | Artificial intelligence, machine learning, LLMs, prompt engineering, AI tools |
 | `frontend` | FrontEnd | UI frameworks, CSS, JavaScript, browser APIs, web components, accessibility |
 | `backend` | Backend | Server-side languages, APIs, databases, microservices, system design |
+| `software-engineering` | Software Engineering | Design patterns, SOLID principles, architectural patterns, software architecture |
 | `data` | Data | Data engineering, data science, analytics, ETL, data pipelines |
 | `cloud` | Cloud | Cloud providers, Kubernetes, Docker, infrastructure, DevOps, deployment |
 | `life-work-balance` | Life-Work Balance | Wellness, productivity, burnout prevention, remote work, work-life harmony |
@@ -100,7 +101,7 @@ seriesOrder: 1
 | `description` | Yes | Wrap in quotes. 1-2 sentences, ~120-160 chars. Summarizes what the reader learns. |
 | `pubDate` | Yes | Format: `YYYY-MM-DD`. Use today's date unless the user specifies otherwise. |
 | `heroImage` | No | Unsplash URL with `?w=750&h=422&fit=crop` parameters. The domain `images.unsplash.com` is already whitelisted. To find a relevant image, use WebSearch with `site:unsplash.com {topic} photo`, extract an `images.unsplash.com/photo-*` URL, and append the crop parameters. If no suitable image is found, omit the field. |
-| `category` | Yes | One of: `qa`, `ai`, `frontend`, `backend`, `data`, `cloud`, `life-work-balance`, `softskills` |
+| `category` | Yes | One of: `qa`, `ai`, `frontend`, `backend`, `software-engineering`, `data`, `cloud`, `life-work-balance`, `softskills` |
 | `tags` | Yes | Array of 2-5 unique Title Case strings |
 | `badge` | No | Use `"New"` for fresh posts. Remove after a few weeks. |
 | `series` | No | Only if the post belongs to a multi-part series. Human-readable name (e.g., "AI Fundamentals"). |
@@ -175,7 +176,7 @@ Brief description of the research methodology or how sources were compiled.
 
 After writing both files, confirm:
 - [ ] The slug matches between the post file and the sources file (`postSlug` field)
-- [ ] The `category` value is one of the 8 valid enum values
+- [ ] The `category` value is one of the 9 valid enum values
 - [ ] Tags are unique and Title Case
 - [ ] `pubDate` and `accessDate` use `YYYY-MM-DD` format
 - [ ] `heroImage` URL uses `images.unsplash.com` (already whitelisted) with `?w=750&h=422&fit=crop`
